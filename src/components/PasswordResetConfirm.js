@@ -13,15 +13,16 @@ const PasswordResetConfirm = () => {
 
   useEffect(() => {
     // Open dialog when the component mounts
-    if (dialogRef.current) {
-      dialogRef.current.showModal();
+    const dialog = dialogRef.current;
+    if (dialog) {
+      dialog.showModal();
       document.body.classList.add('add_blur');
     }
     
     // Cleanup on component unmount or modal close
     return () => {
-      if (dialogRef.current) {
-        dialogRef.current.close();
+      if (dialog) {
+        dialog.close();
         document.body.classList.remove('add_blur');
       }
     };
