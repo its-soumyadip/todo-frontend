@@ -1,4 +1,4 @@
-import { useParams, useNavigate, redirect } from 'react-router-dom'; // To access route parameters
+import { useParams, useNavigate } from 'react-router-dom'; // To access route parameters
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 // import '../static/passwordreset.css'; // Ensure to link your CSS
