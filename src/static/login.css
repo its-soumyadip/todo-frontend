@@ -1,0 +1,135 @@
+/* Center and animate the modal */
+.login-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid white;
+    width: 350px;
+    animation: dropDown 0.4s ease;
+  }
+  
+  @keyframes dropDown {
+    from {
+      transform: translate(-50%, -150%);
+    }
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  /* Close icon (X) styling */
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Form and input styling */
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+ 
+ .text-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: transparent;
+    color: white;
+  }
+  
+  .dialog-buttons {
+    text-align: center;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background: linear-gradient(
+      90deg,
+      rgba(93, 12, 255, 1) 0%,
+      rgba(155, 0, 250, 1) 100%
+    );
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #4509b0;
+  }
+  
+  /* Blur effect */
+  .add_blur {
+    filter: blur(5px);
+  }
+  
+  .login-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .login-links button, a {
+    color: white; /* Purple links */
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-links button:hover {
+    text-decoration: underline;
+  }
+
+  login-register-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Ensures it stays on top of other elements */
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .login-button {
+  
+   
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the logout button */
+  .login-button:hover {
+    background-color: #4509b0; /* Darker red on hover */
+    color: white;
+  }
+  

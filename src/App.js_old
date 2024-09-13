@@ -1,0 +1,64 @@
+import React, { useState, useEffect } from 'react';
+import TaskList from './components/TaskList';
+import TaskForm from './components/TaskForm';
+import LoginForm from './components/LoginForm';
+import PasswordReset from './components/PasswordReset';
+import './static/main.css';
+
+const App = () => {
+  const [tasksUpdated, setTasksUpdated] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('Guest');
+  const [message, setMessage] = useState('Please login to add your tasks!');
+
+  // Check if the user is logged in when the component mounts
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+      setMessage('');
+    }
+  }, []);
+
+  const handleTasksUpdated = () => {
+    setTasksUpdated(prevState => !prevState); // Toggle state to trigger re-fetch
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token from localStorage
+    setIsLoggedIn(false); // Update state to reflect logout
+    window.location.href = '/'; // Redirect to the login page or any other page
+  };
+
+  
+
+  const handleLogin = (username) => {
+    setIsLoggedIn(true);
+    handleTasksUpdated();
+    setUsername(username);
+    setMessage(`Welcome back, ${username}!`);
+  };
+
+ 
+
+
+  return (
+    <div className="App">
+      <div className='todo-app'>
+        {isLoggedIn && (
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+        )}
+        <h1 id="h1">What's your plan today {username}?</h1>
+        <TaskForm onTaskAdded={handleTasksUpdated} />
+        {message && <p className="message">{message}</p>}
+        <TaskList tasksUpdated={tasksUpdated} />
+        {!isLoggedIn && <LoginForm onLogin={handleLogin} />}
+        <PasswordReset />
+      </div>
+    </div>
+  );
+};
+
+export default App;

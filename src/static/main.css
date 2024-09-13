@@ -1,0 +1,294 @@
+/* Position the logout button */
+.logout-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #f44336; /* Red background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the logout button */
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Optional: Container styling for positioning */
+.container {
+  position: relative;
+  padding: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(48, 16, 255, 1) 0%,
+    rgba(100, 115, 255, 1) 100%
+  );
+}
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 520px;
+  min-height: 520px;
+  background: #161a2b;
+  text-align: center;
+  margin: 128px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+}
+
+h1 {
+  margin: 32px 8px;
+  color: #fff;
+  font-size: 24px;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.todo-form {
+  margin-bottom: 32px;
+}
+
+.todo-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid #5d0cff;
+  outline: none;
+  width: 320px;
+  background: transparent;
+  color: #fff;
+}
+
+.todo-input::placeholder {
+  color: #e2e2e2;
+}
+
+.todo-button {
+  padding: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.todo-input.edit {
+  border: 2px solid #149fff;
+}
+
+.todo-button.edit {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  padding: 16px 22px;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin: 4px auto;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  );
+
+  padding: 16px;
+  border-radius: 5px;
+  width: 90%;
+}
+.todo-row-2 {
+  display: flex;
+  width: 100%;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.todo-row:nth-child(4n + 1) {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+
+.todo-row:nth-child(4n + 2) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 12, 241, 1) 0%,
+    rgba(250, 0, 135, 1) 100%
+  );
+}
+
+.todo-row:nth-child(4n + 3) {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    justify-content: flex-end; /* Align the icons to the right */
+    flex-grow: 0;
+    margin-left: auto; /* Push icons to the far right */
+  }
+
+.todo-row .notes {
+  flex-grow: 3; /* Take up remaining space */
+  margin-right: 10px; /* Add some space between the title and icons */
+}
+
+.delete-icon {
+  margin-left: 5px;
+  color: #fff;
+}
+
+.edit-icon {
+  color: #fff;
+}
+.modal-content {
+  background-color: black;
+}
+.my-input {
+  width: 100% !important;
+  margin-top: 1rem;
+}
+.my-button {
+  padding: 12px 16px;
+  font-size: 19px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  margin-top: 1.8rem;
+  border-radius: 8px;
+}
+.modal-content {
+  border-radius: 8px;
+  border: white 1px solid;
+}
+button:focus,
+button:hover {
+  outline: none;
+}
+.todo-edit-input{
+padding: 14px 32px 14px 16px;
+border-radius: 4px 0 0 4px;
+border: 2px solid black;
+border-radius: 5px;
+outline: none;
+width: 320px;
+background: transparent;
+color: #fff;
+}
+
+.fa-lg{
+  margin-left: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.message {
+  color: #333; /* Dark text color for contrast */
+  background-color: #f9f9f9; /* Light background color for the message */
+  padding: 8px 14px; /* Padding around the message text */
+  border-radius: 8px; /* Rounded corners for the message box */
+  font-size: 18px; /* Font size for readability */
+  text-align: center; /* Center-align the text */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow effect */
+  border: 1px solid #ddd; /* Light border to define the message box */
+  margin: 20px auto; /* Center the message with some margin */
+  max-width: 500px; /* Limit the message width */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation */
+  margin: 0 20px;
+  margin-top: 8px;
+  transform: translateY(-20px); /* Start from slightly above */
+}
+
+.logout-backup{
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .todo-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background: #161a2b;
+    text-align: center;
+    padding-bottom: 32px;
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .todo-input {
+    width: auto;
+  }
+  .logout-backup{
+    display: block;
+  position: fixed;
+  top: 10px;
+  right: 8px;
+  padding: 10px 10px;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+  }
+  .logout-button{
+    display: none;
+  }
+  .todo-edit-input{
+    width: 220px;
+  }
+
+}
