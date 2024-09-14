@@ -12,16 +12,16 @@ const PasswordResetConfirm = () => {
   const dialogRef = useRef(null);
 
   useEffect(() => {
-    // Open dialog when the component mounts
     const dialog = dialogRef.current;
     if (dialog) {
       dialog.showModal();
       document.body.classList.add('add_blur');
     }
-    
+
     // Cleanup on component unmount or modal close
     return () => {
       if (dialog) {
+        alert('Modal closed');
         dialog.close();
         document.body.classList.remove('add_blur');
       }
@@ -51,7 +51,16 @@ const PasswordResetConfirm = () => {
   };
 
   const closeDialog = () => {
-    window.location.href = '/';
+    alert('Modal closed');
+    const dialog = dialogRef.current;
+    alert(dialog);
+    if (dialog) {
+      alert('Modal closed');
+      dialog.close();
+      document.body.classList.remove('add_blur');
+    }
+    // Redirect to the home page
+    navigate('/');
   };
 
   return (

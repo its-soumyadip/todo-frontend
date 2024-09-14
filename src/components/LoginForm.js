@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../static/login.css'; // Ensure to link your CSS
 import { login, register, passwordReset } from '../services/api';
 import Loader from './Loader';
@@ -16,22 +16,46 @@ const LoginFormDialog = ({ onLogin }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   // Memoized openDialog function
-  const openDialog = useCallback(() => {
+  // const openDialog = useCallback(() => {
+  //   alert('Modal opened');
+  //   const dialog = dialogRef.current;
+  //   if (dialog && !modalOpen) {
+  //     dialog.showModal();
+  //     setModalOpen(true);
+  //     document.body.classList.add('add_blur');
+  //   }
+  // }, [modalOpen]);
+
+  const openDialog = () => {
     if (!modalOpen) {
-      dialogRef.current.showModal();
+       // Check if the dialog is not already open
+      const dialog = dialogRef.current;
+
+      dialog.showModal();
       setModalOpen(true);
       document.body.classList.add('add_blur');
     }
-  }, [modalOpen]);
+  };
 
   // Memoized closeDialog function
-  const closeDialog = useCallback(() => {
-    if (dialogRef.current.open) {
-      dialogRef.current.close();
+  // const closeDialog = useCallback(() => {
+  //   const dialog = dialogRef.current;
+  //   if (dialog && dialog.open) {
+  //     dialogRef.current.close();
+  //     alert('Modal closed');
+  //     setModalOpen(false);
+  //     document.body.classList.remove('add_blur');
+  //   }
+  // }, []);
+
+  const closeDialog = () => {
+    const dialog = dialogRef.current;
+    if (dialog.open) {  // Check if the dialog is open
+      dialog.close();
       setModalOpen(false);
       document.body.classList.remove('add_blur');
     }
-  }, []);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +102,8 @@ const LoginFormDialog = ({ onLogin }) => {
     if (!token) {
       openDialog();
     }
-  }, [openDialog]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setMessage('');
